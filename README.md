@@ -143,6 +143,7 @@ Error: Could not find or load main class org.apache.maven.surefire.booter.Forked
 ```
 
 - Resolution step 1: run the command from "jenkins" user.
+
 https://stackoverflow.com/questions/53010200/maven-surefire-could-not-find-forkedbooter-class
 ```
 method: with env variable. *resolved*
