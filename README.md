@@ -164,3 +164,13 @@ Picked up _JAVA_OPTIONS: -Djdk.net.URLClassPath.disableClassPathURLCheck=true
 - manage jenkins -> global properties -> Environment variables 
 - Name: _JAVA_OPTIONS, Value: -Djdk.net.URLClassPath.disableClassPathURLCheck=true
 ```
+
+#### TASK 2: Apply SCM to allow Jenkins to pull source.
+
+- Apply Poll PCM: "* * * * *" (every 1 mins interval)
+- Job Review: "Git Polling Log" to see additional comments.
+
+```
+git commit --allow-empty -m 'trigger built job'
+git push
+```
