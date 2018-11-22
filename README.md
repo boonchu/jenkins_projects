@@ -58,8 +58,8 @@ echo "" >> /etc/issue
 ```
 
 - JDK requirements
-```
 https://jenkins.io/doc/administration/requirements/java/
+```
 OpenJDK JDK / JRE 8 - 64 bits
 ```
 ```
@@ -116,10 +116,8 @@ Configure maven {name: mvn, MAVEN_HOME: /user/share/maven}
 ```
 
 - Setup Job
-```
-Git:
 https://github.com/boonchu/maven-project.git
-
+```
 Build:
 Invoke top-level Maven targets:
 - Maven Version:mvn
@@ -145,13 +143,10 @@ Error: Could not find or load main class org.apache.maven.surefire.booter.Forked
 ```
 
 - Resolution step 1: run the command from "jenkins" user.
+https://stackoverflow.com/questions/53010200/maven-surefire-could-not-find-forkedbooter-class
 ```
 method: with env variable. *resolved*
 _JAVA_OPTIONS=-Djdk.net.URLClassPath.disableClassPathURLCheck=true mvn clean install -U
-
-https://talk.openmrs.org/t/error-could-not-find-or-load-main-class-org-apache-maven-surefire-booter-forkedbooter/20509
-https://stackoverflow.com/questions/53010200/maven-surefire-could-not-find-forkedbooter-class
-https://stackoverflow.com/questions/50661648/spring-boot-fails-to-run-maven-surefire-plugin-classnotfoundexception-org-apache/50661649#50661649
 ```
 - Resolution step 2: update env variable to .bash_profile on "jenkins" user.
 ```
@@ -174,3 +169,12 @@ Picked up _JAVA_OPTIONS: -Djdk.net.URLClassPath.disableClassPathURLCheck=true
 git commit --allow-empty -m 'trigger built job'
 git push
 ```
+
+#### TASK 3: Trigger Jenkins job by Token
+```
+- Build triggers -> Trigger builds remotely (e.g., from scripts) -> Add Auth Token "MAVEN_TOKEN"
+- access http://192.168.200.101:8080/job/maven-project/build?token=MAVEN_TOKEN to trigger job
+```
+
+#### TASK 4: Review Github Plugin
+https://wiki.jenkins-ci.org/display/JENKINS/GitHub+Plugin
