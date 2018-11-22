@@ -44,11 +44,16 @@ useradd -g ubuntu -G admin -s /bin/bash -d /home/ubuntu ubuntu
 mkdir -p /home/ubuntu
 chown -R ubuntu:ubuntu /home/ubuntu
 echo "ubuntu ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
+echo "ubuntu:ubuntu" | chpasswd
 ```
 
-- install MISC tools
-apt-get install jq tmux python python-pip parted
-echo Console with IP address. Add the script to /etc/network/if-up.d/show-up-address
+- install SSH service and Misc tools
+```
+apt-get update && apt-get install -y openssh-server
+apt-get install -y jq tmux python python-pip parted
+```
+
+- echo Console with IP address. Add the script to /etc/network/if-up.d/show-up-address
 ```
 #!/bin/bash
 
@@ -73,7 +78,7 @@ https://jenkins.io/doc/administration/requirements/java/
 OpenJDK JDK / JRE 8 - 64 bits
 ```
 ```
-apt-get update && apt install openjdk-8-jre-headless && apt install openjdk-8-jdk
+apt-get update && apt install -y openjdk-8-jre-headless && apt install -y openjdk-8-jdk
 
 root@node-1:~# java -version
 openjdk version "1.8.0_181"
