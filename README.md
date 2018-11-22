@@ -127,18 +127,28 @@ Invoke top-level Maven targets:
 - JVM options:-Djdk.net.URLClassPath.disableClassPathURLCheck=true
 ```
 
-- When you get this error from job...
+- Error from the jo, 
 ```
 su - jenkins
 cd ~/workspace/maven-project
+
+method: without debugging output.
+mvn clean install -U 
+method: with debugging output.
 mvn clean install -U -X 
+
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
 Forking command line: /bin/sh -c cd /var/lib/jenkins/workspace/maven-project/server && /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -jar /var/lib/jenkins/workspace/maven-project/server/target/surefire/surefirebooter6484219378912071020.jar /var/lib/jenkins/workspace/maven-project/server/target/surefire/surefire523676550179335272tmp /var/lib/jenkins/workspace/maven-project/server/target/surefire/surefire1682245626820082404tmp
 Error: Could not find or load main class org.apache.maven.surefire.booter.ForkedBooter
 ```
+
+- The job failure was resolved by this setup.
 ```
+method: with env variable. *resolved*
+_JAVA_OPTIONS=-Djdk.net.URLClassPath.disableClassPathURLCheck=true mvn clean install -U
+
 https://talk.openmrs.org/t/error-could-not-find-or-load-main-class-org-apache-maven-surefire-booter-forkedbooter/20509
 https://stackoverflow.com/questions/53010200/maven-surefire-could-not-find-forkedbooter-class
 https://stackoverflow.com/questions/50661648/spring-boot-fails-to-run-maven-surefire-plugin-classnotfoundexception-org-apache/50661649#50661649
