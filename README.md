@@ -118,7 +118,7 @@ Configure maven {name: mvn, MAVEN_HOME: /user/share/maven}
 - Setup Job
 ```
 Git:
-https://github.com/jleetutorial/maven-project
+https://github.com/boonchu/maven-project.git
 
 Build:
 Invoke top-level Maven targets:
