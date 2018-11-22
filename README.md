@@ -159,3 +159,8 @@ $ echo export _JAVA_OPTIONS=-Djdk.net.URLClassPath.disableClassPathURLCheck=true
 $ mvn clean install -U
 Picked up _JAVA_OPTIONS: -Djdk.net.URLClassPath.disableClassPathURLCheck=true
 ```
+- Resolution step 3: update env variable over Jenkins system settings.
+```
+- manage jenkins -> global properties -> Environment variables 
+- Name: _JAVA_OPTIONS, Value: -Djdk.net.URLClassPath.disableClassPathURLCheck=true
+```
