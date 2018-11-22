@@ -1,4 +1,9 @@
 #### Jenkins CI/CD
+- Overview
+```
+- This environment contains Jenkins and Tomcat staging and production nodes. This simulation practice aim to user who want to understand how CI/CD works.
+```
+
 - change hostname
 ```
 hostnamectl set-hostname node-1
