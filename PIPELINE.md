@@ -53,3 +53,15 @@ https://stackoverflow.com/questions/41675813/the-username-you-provided-is-not-al
 ```
 
 - Deployment show up at http://[Staging IP]:8080/webapp/
+
+#### Pipeline Visualization 
+
+- Apply "Build Pipeline Plugin"
+
+- Setup Pipeline dashboard
+```
+- Click "+" sign 
+- Select Layut -> Select Initial Job -> "maven-project"
+- Click "run"
+```
+
