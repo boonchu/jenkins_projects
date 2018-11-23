@@ -3,6 +3,9 @@ pipeline {
     parameters {
         string(name: 'git_repo', defaultValue: 'https://github.com/jleetutorial/maven-project.git', description: 'Git Repo')
     }
+    triggers {
+        pollSCM('* * * * *')
+    }
     stages {
         stage('Preparation') {
             steps {
@@ -29,6 +32,14 @@ pipeline {
         stage ('Deploy to Staging') {
             steps {
                 build job: "deploy-to-staging"
+            }
+            post {
+                success {
+                    echo "Code successfully deployed to staging!"
+                }
+                failure {
+                    echo "Deployment failed!"
+                }
             }
         }
     }

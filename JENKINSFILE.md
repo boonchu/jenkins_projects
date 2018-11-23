@@ -11,6 +11,9 @@ pipeline {
     parameters {
         string(name: 'git_repo', defaultValue: 'https://github.com/jleetutorial/maven-project.git', description: 'Git Repo')
     }
+	triggers {
+		pollSCM('* * * * *')
+	}
     stages {
         stage('Preparation') {
             steps {
